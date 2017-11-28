@@ -6,7 +6,8 @@ id INT NOT NULL AUTO_INCREMENT,
 email VARCHAR(45) UNIQUE NOT NULL,
 password VARCHAR(150) NOT NULL,
 name VARCHAR(100) NOT NULL,
-CONSTRAINT user_pk PRIMARY KEY (id))
+CONSTRAINT user_pk PRIMARY KEY (id)
+);
 
 CREATE TABLE expenses(
 id INT NOT NULL AUTO_INCREMENT,
@@ -15,14 +16,16 @@ quantity INT NOT NULL,
 valor DECIMAL NOT NULL,
 user_id INT NOT NULL,
 CONSTRAINT expenses_pk PRIMARY KEY(id),
-CONSTRAINT user_fk FOREIGN KEY(user_id) REFERENCES users(id))
+CONSTRAINT user_fk FOREIGN KEY(user_id) REFERENCES users(id)
+);
 
 CREATE TABLE day_expenses(
 id INT NOT NULL AUTO_INCREMENT,
 date_ DATETIME NOT NULL,
 expenses_id INT NOT NULL,
 CONSTRAINT day_pk PRIMARY KEY(id),
-CONSTRAINT expenses_fk FOREIGN KEY(expenses_id) REFERENCES expenses(id))
+CONSTRAINT expenses_fk FOREIGN KEY(expenses_id) REFERENCES expenses(id)
+);
 
 CREATE TABLE products(
 id INT NOT NULL AUTO_INCREMENT,
@@ -30,7 +33,8 @@ name VARCHAR(45) NOT NULL,
 valor DECIMAL NOT NULL, 
 user_id INT NOT NULL,
 CONSTRAINT products_pk PRIMARY KEY(id),
-CONSTRAINT user_fk FOREIGN KEY(user_id) REFERENCES users(id))
+CONSTRAINT users_fk FOREIGN KEY(user_id) REFERENCES users(id)
+);
 
 CREATE TABLE day_products(
 id INT NOT NULL AUTO_INCREMENT,
@@ -38,4 +42,5 @@ date_ DATETIME NOT NULL,
 quantity INT NOT NULL,
 products_id INT NOT NULL,
 CONSTRAINT day_pk PRIMARY KEY(id),
-CONSTRAINT products_fk FOREIGN KEY (products_id) REFERENCES products(id))
+CONSTRAINT products_fk FOREIGN KEY (products_id) REFERENCES products(id)
+);
