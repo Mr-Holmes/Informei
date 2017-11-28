@@ -1,7 +1,7 @@
 CREATE DATABASE inforMEI;
 USE inforMEI;
 
-CREATE TABLE    Users(
+CREATE TABLE  Users(
 id INT NOT NULL AUTO_INCREMENT,
 email VARCHAR(100) UNIQUE NOT NULL,
 password VARCHAR(200) NOT NULL,
@@ -15,7 +15,7 @@ description VARCHAR(100) UNIQUE NOT NULL,
 valor DECIMAL(6,2) NOT NULL,
 user_id INT NOT NULL,
 CONSTRAINT expenses_pk PRIMARY KEY(id),
-CONSTRAINT user_fk FOREIGN KEY(user_id) REFERENCES users(id)
+CONSTRAINT user_fk FOREIGN KEY(user_id) REFERENCES Users(id)
 );
 
 CREATE TABLE Day_expenses(
@@ -24,7 +24,7 @@ date DATETIME NOT NULL,
 expenses_id INT NOT NULL,
 quantity INT NOT NULL,
 CONSTRAINT day_pk PRIMARY KEY(id),
-CONSTRAINT expenses_fk FOREIGN KEY(expenses_id) REFERENCES expenses(id)
+CONSTRAINT expenses_fk FOREIGN KEY(expenses_id) REFERENCES Expenses(id)
 );
 
 CREATE TABLE Products(
@@ -33,7 +33,7 @@ description VARCHAR(100) UNIQUE NOT NULL,
 valor DECIMAL(6,2) NOT NULL, 
 user_id INT NOT NULL,
 CONSTRAINT products_pk PRIMARY KEY(id),
-CONSTRAINT users_fk FOREIGN KEY(user_id) REFERENCES users(id)
+CONSTRAINT users_fk FOREIGN KEY(user_id) REFERENCES Users(id)
 );
 
 CREATE TABLE Day_products(
@@ -42,5 +42,5 @@ date DATETIME NOT NULL,
 quantity INT NOT NULL,
 products_id INT NOT NULL,
 CONSTRAINT day_pk PRIMARY KEY(id),
-CONSTRAINT products_fk FOREIGN KEY (products_id) REFERENCES products(id)
+CONSTRAINT products_fk FOREIGN KEY (products_id) REFERENCES Products(id)
 );
