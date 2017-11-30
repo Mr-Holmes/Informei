@@ -1,11 +1,19 @@
-<div class="users form">
-<?= $this->Flash->render('auth') ?>
-<?= $this->Form->create() ?>
-<fieldset>
-<legend><?= __('Por favor, entre com seu usuário e senha:') ?></legend>
-<?= $this->Form->control('username') ?>
-<?= $this->Form->control('password') ?>
-</fieldset>
-<?= $this->Form->button(__('Login')); ?>
-<?= $this->Form->end() ?>
-</div>
+	<div class="card" style="width:30rem">
+		<div class="container">
+			<center></center>
+ 			<div class="card-body">
+				<div class="Form-control">
+					<?= $this->Flash->render('auth') ?>
+					<?= $this->Form->create() ?>
+					<fieldset>
+					<legend><?= __('Login:') ?></legend>
+					<?= $this->Form->control('username',['class' => 'form-control']) ?>
+					<?= $this->Form->control('password',['class' => 'form-control']) ?>
+					</fieldset>
+					<?= $this->Form->button(__('Login'),['class' => 'form-control btn btn-primary	']); ?>
+					<?= $this->Form->end() ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	
