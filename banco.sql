@@ -1,3 +1,4 @@
+CREATE DATABASE informei;
 USE informei;
 
 CREATE TABLE  users(
