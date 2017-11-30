@@ -47,7 +47,7 @@ class AppController extends Controller
             'authorize' => ['Controller'],
 
             'loginRedirect' => [
-                'controller' => 'Products',
+                'controller' => 'Users',
                 'action' => 'index'
             ],
             'logoutRedirect' => [
@@ -58,8 +58,26 @@ class AppController extends Controller
             ]);
 
     }
+    public function login()
+    {
+        if($this->request->is('post')){
+            $user = $this->Auth->identify();
+            if($user){
+                $this->Auth->setUser($user);
+                return $this->redirect($this->Auth->redirectUrl());
+            }
+
+            $this->Flash->error(__("Usuário inválido, tente novamente"));
+        }
+    }
+
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());  
+    }
+
     public function beforeFilter(Event $event){
-        $this->Auth->allow(['index'],['view'],['display'],['add']);
+        $this->Auth->allow(['index'],['view'],['display']);
     }
 
     /**
@@ -78,5 +96,11 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+    }
+    public function isAuthorized($user){
+        if (isset($user['username'])){
+            return true;
+        }
+        return false;
     }
 }

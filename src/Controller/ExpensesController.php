@@ -54,6 +54,8 @@ class ExpensesController extends AppController
     public function add()
     {
         $expense = $this->Expenses->newEntity();
+        $username = $this->request->session()->read('Auth.User');
+        $expense->user_id = $username['id']; 
         if ($this->request->is('post')) {
             $expense = $this->Expenses->patchEntity($expense, $this->request->getData());
             if ($this->Expenses->save($expense)) {

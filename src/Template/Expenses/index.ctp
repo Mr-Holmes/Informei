@@ -7,9 +7,9 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('New Expense'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="expenses index large-9 medium-8 columns content">
@@ -30,7 +30,7 @@
                 <td><?= $this->Number->format($expense->id) ?></td>
                 <td><?= h($expense->description) ?></td>
                 <td><?= $this->Number->format($expense->valor) ?></td>
-                <td><?= $expense->has('user') ? $this->Html->link($expense->user->name, ['controller' => 'Users', 'action' => 'view', $expense->user->id]) : '' ?></td>
+                <td><?= $expense->has('user') ? $this->Html->link($expense->user->username, ['controller' => 'Users', 'action' => 'view', $expense->user->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $expense->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $expense->id]) ?>
