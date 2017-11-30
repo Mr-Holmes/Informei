@@ -14,16 +14,18 @@
         <li><?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="users form large-9 medium-8 columns content">
-    <?= $this->Form->create($user) ?>
-    <fieldset>
-        <legend><?= __('Add User') ?></legend>
-        <?php
-            echo $this->Form->control('email');
-            echo $this->Form->control('password');
-            echo $this->Form->control('username');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<div class="form-control">
+    <div>
+        <?= $this->Form->create($user) ?>
+        <fieldset>
+            <legend><?= __('Add User') ?></legend>
+            <?php
+                echo $this->Form->control('email',['class' => 'form-control','placheholder' => 'Insira seu E-mail valído']);
+                echo $this->Form->control('password',['class' => 'form-control']);
+                echo $this->Form->control('username',['class' => 'form-control','placheholder' => "Insira o nome do usúario "]);
+            ?>
+        </fieldset>
+        <?= $this->Form->button(__('Submit'),['class' => 'form-control btn btn-primary']) ?>
+        <?= $this->Form->end() ?>
+    </div>
 </div>

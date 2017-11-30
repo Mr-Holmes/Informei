@@ -35,6 +35,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('script') ?>
 </head>
 <body>
+    <?php  
+    $user = $this->request->session()->read('Auth.User.username');
+    $id = $this->request->session()->read('Auth.User.id') 
+    ?>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="collapse navbar-collapse" >
             <ul class="navbar-nav mr-auto">
@@ -42,6 +47,20 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <a href="" class="nav-link"><?= $this->fetch('title') ?><span class="sr-only">(current)</span></a>
                 </li>
             </ul>
+        </div>
+        <div >
+            <ul class="navbar-nav mr-auto">
+                <?php if(!$user): ?>
+                    <li class="nav-item active"> 
+                        <a href="" class="nav-link"><?=$this->Html->link(__('Cadastre-se'),['controller' => 'users','action' => 'add'])?></a>
+                        <span class="sr-only">(current)</span>
+                    </li>
+                <?php endif; ?>
+                <?php if($user): ?>
+                    <li><?=$this->Html->link(__('logout'),['controller' => 'users','action' => 'logout'])?></li>
+                <?php endif; ?>
+            </ul>
+                
         </div>
     </nav>
     <?= $this->Flash->render() ?>
