@@ -18,7 +18,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('description') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('valor') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -28,7 +28,7 @@
             <?php foreach ($expenses as $expense): ?>
             <tr>
                 <td><?= $this->Number->format($expense->id) ?></td>
-                <td><?= h($expense->name) ?></td>
+                <td><?= h($expense->description) ?></td>
                 <td><?= $this->Number->format($expense->valor) ?></td>
                 <td><?= $expense->has('user') ? $this->Html->link($expense->user->name, ['controller' => 'Users', 'action' => 'view', $expense->user->id]) : '' ?></td>
                 <td class="actions">

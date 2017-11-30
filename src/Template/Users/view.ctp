@@ -29,8 +29,8 @@
             <td><?= h($user->password) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($user->name) ?></td>
+            <th scope="row"><?= __('Username') ?></th>
+            <td><?= h($user->username) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
@@ -43,7 +43,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Name') ?></th>
+                <th scope="col"><?= __('Description') ?></th>
                 <th scope="col"><?= __('Valor') ?></th>
                 <th scope="col"><?= __('User Id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -51,7 +51,7 @@
             <?php foreach ($user->expenses as $expenses): ?>
             <tr>
                 <td><?= h($expenses->id) ?></td>
-                <td><?= h($expenses->name) ?></td>
+                <td><?= h($expenses->description) ?></td>
                 <td><?= h($expenses->valor) ?></td>
                 <td><?= h($expenses->user_id) ?></td>
                 <td class="actions">
@@ -70,7 +70,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Name') ?></th>
+                <th scope="col"><?= __('Description') ?></th>
                 <th scope="col"><?= __('Valor') ?></th>
                 <th scope="col"><?= __('User Id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -78,7 +78,7 @@
             <?php foreach ($user->products as $products): ?>
             <tr>
                 <td><?= h($products->id) ?></td>
-                <td><?= h($products->name) ?></td>
+                <td><?= h($products->description) ?></td>
                 <td><?= h($products->valor) ?></td>
                 <td><?= h($products->user_id) ?></td>
                 <td class="actions">

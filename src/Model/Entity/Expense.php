@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * Expense Entity
  *
  * @property int $id
- * @property string $name
+ * @property string $description
  * @property float $valor
  * @property int $user_id
  *
@@ -26,7 +26,7 @@ class Expense extends Entity
      * @var array
      */
     protected $_accessible = [
-        'name' => true,
+        'description' => true,
         'valor' => true,
         'user_id' => true,
         'user' => true

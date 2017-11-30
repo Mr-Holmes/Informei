@@ -19,8 +19,8 @@
     <h3><?= h($expense->name) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($expense->name) ?></td>
+            <th scope="row"><?= __('Description') ?></th>
+            <td><?= h($expense->description) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('User') ?></th>

@@ -55,10 +55,11 @@ class ProductsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('name')
-            ->maxLength('name', 45)
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->scalar('description')
+            ->maxLength('description', 100)
+            ->requirePresence('description', 'create')
+            ->notEmpty('description')
+            ->add('description', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
             ->decimal('valor')
@@ -77,6 +78,7 @@ class ProductsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
+        $rules->add($rules->isUnique(['description']));
         $rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;

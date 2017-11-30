@@ -13,9 +13,9 @@
                 ['confirm' => __('Are you sure you want to delete # {0}?', $product->id)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Products'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="products form large-9 medium-8 columns content">
@@ -23,7 +23,7 @@
     <fieldset>
         <legend><?= __('Edit Product') ?></legend>
         <?php
-            echo $this->Form->control('name');
+            echo $this->Form->control('description');
             echo $this->Form->control('valor');
             echo $this->Form->control('user_id', ['options' => $users]);
         ?>

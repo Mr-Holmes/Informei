@@ -2,6 +2,8 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\Event\Event;
+use Cake\Auth\DefaultPasswordHasher;
 
 /**
  * User Entity
@@ -9,7 +11,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $email
  * @property string $password
- * @property string $name
+ * @property string $username
  *
  * @property \App\Model\Entity\Expense[] $expenses
  * @property \App\Model\Entity\Product[] $products
@@ -29,7 +31,7 @@ class User extends Entity
     protected $_accessible = [
         'email' => true,
         'password' => true,
-        'name' => true,
+        'username' => true,
         'expenses' => true,
         'products' => true
     ];
@@ -42,4 +44,9 @@ class User extends Entity
     protected $_hidden = [
         'password'
     ];
+
+    protected function _setPassword($password)
+    {
+        return (new DefaultPasswordHasher)->hash($password);
+    }
 }
