@@ -38,10 +38,14 @@ class UsersTable extends Table
         $this->setPrimaryKey('id');
 
         $this->hasMany('Expenses', [
-            'foreignKey' => 'user_id'
+            'foreignKey' => 'user_id',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
         ]);
         $this->hasMany('Products', [
-            'foreignKey' => 'user_id'
+            'foreignKey' => 'user_id',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
         ]);
     }
 
@@ -91,5 +95,9 @@ class UsersTable extends Table
         $rules->add($rules->isUnique(['username']));
 
         return $rules;
+    }
+    public function isOwnedBy($userId){
+
+        return $this->exists(['user_id' => $userId]);
     }
 }

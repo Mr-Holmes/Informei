@@ -75,14 +75,14 @@ class UsersController extends AppController
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
     public function add()
-    {
+    { 
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'login']);
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
@@ -134,4 +134,16 @@ class UsersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    public function isAuthorized($user){
+        if (isset($user['username'])){
+            return true;
+        }if(in_array($this->request->action,['edit'],['delete'])){
+            $userId = (int)$this->request->params['pass'][0];
+            if ($this->Users->isOwnedBy($userId, $user['id'])) {
+                return true;
+            }
+        }
+        return parent::isAuthorized($user);
+    }
+
 }
