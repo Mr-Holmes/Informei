@@ -15,7 +15,7 @@
     <fieldset>
         <legend><?= __('Adicionar Produto') ?></legend>
         <?php
-            echo $this->Form->control('Tipo de Produto',['class' => 'form-control']);
+            echo $this->Form->control('description',['class' => 'form-control']);
             echo $this->Form->control('valor',['class' => 'form-control']);
         ?>
     </fieldset>

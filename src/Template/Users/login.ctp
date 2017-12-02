@@ -11,11 +11,26 @@
 						<legend><?= __('Login:') ?></legend>
 						<?= $this->Form->control('username',['class' => 'form-control','data-toggle' => 'tooltip','data-placement' => 'top','title' => 'Nome do Usuario']) ?>
 						<?= $this->Form->control('password',['class' => 'form-control','data-toggle' => 'tooltip','data-placement' => 'top','title' => 'Senha']) ?>
+						
 					</fieldset>
-					<?= $this->Form->button(__('Login'),['class' => 'form-control btn btn-primary	']); ?>
+							<?= $this->Form->button(__('Login'),['class' => 'form-control btn btn-primary']); ?>
+							<br><br>
 					<?= $this->Form->end() ?>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<style type="text/css">
+
+    .card {
+    width: 100%;
+    padding-right: inherit;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 40px;
+	}
+
+</style>

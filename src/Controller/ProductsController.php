@@ -66,6 +66,7 @@ class ProductsController extends AppController
             $this->Flash->error(__('The product could not be saved. Please, try again.'));
         }
         $users = $this->Products->Users->find('list', ['limit' => 200]);
+        
         $this->set(compact('product', 'users'));
         $this->set('_serialize', ['product']);
     }

@@ -69,6 +69,9 @@ class UsersController extends AppController
         return $this->redirect($this->Auth->logout());  
     }
 
+    public function main (){
+    }
+
     /**
      * Add method
      *
@@ -134,6 +137,7 @@ class UsersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
     public function isAuthorized($user){
         if (isset($user['username'])){
             return true;

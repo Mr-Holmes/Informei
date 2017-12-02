@@ -4,23 +4,12 @@
  * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Expense'), ['controller' => 'Expenses', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Expenses'), ['controller' => 'Expenses', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index']) ?></li>
-    </ul>
-</nav>
 <div class="users index large-9 medium-8 columns content">
     <h3><?= __('Users') ?></h3>
-    <table cellpadding="0" cellspacing="0">
-        <thead>
+    <table czellpadding="0" cellspacing="0">
+        <thead class="">
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('password') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('username') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -28,9 +17,7 @@
         <tbody>
             <?php foreach ($users as $user): ?>
             <tr>
-                <td><?= $this->Number->format($user->id) ?></td>
                 <td><?= h($user->email) ?></td>
-                <td><?= h($user->password) ?></td>
                 <td><?= h($user->username) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
@@ -49,5 +36,22 @@
         <li class="page-item"><a class="page-link" href="#">3</a></li>
         <li class="page-item"><a class="page-link" href="#">Next</a></li>
       </ul>
-    </nav>
+        </nav>
+</div>
+
+
+<div class="form-control">
+
+    <?= 
+    $this->Form->create($product, array('url'=>$this->Html->url(array('controller'=>'Product', 'action'=>'add'))));
+    $this->Form->create($product, array('action' => '')) ; ?>
+    <fieldset>
+        <legend><?= __('Adicionar Produto') ?></legend>
+        <?php
+            echo $this->Form->control('description',['class' => 'form-control']);
+            echo $this->Form->control('valor',['class' => 'form-control']);
+        ?>
+    </fieldset>
+    <?= $this->Form->button(__('Submit'),['class' => 'form-control btn btn-primary']) ?>
+    <?= $this->Form->end() ?>
 </div>
