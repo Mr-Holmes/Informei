@@ -4,6 +4,7 @@
 	<div class="card" style="width:30rem">
 		<div class="container">
 	 		<div class="card-body">
+	 			<?= $this->Html->image('logo.png') ?>
 				<div class="Form-control">
 					<?= $this->Flash->render('auth') ?>
 					<?= $this->Form->create() ?>
