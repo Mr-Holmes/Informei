@@ -62,12 +62,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
         <div >
             <ul class="navbar-nav mr-auto">
-                <?php if(!$user): ?>
-                    <li class="nav-item active"> 
-                        <a href="" class="nav-link"><?=$this->Html->link(__('Cadastre-se'),['controller' => 'users','action' => 'add'])?></a>
-                        <span class="sr-only">(current)</span>
-                    </li>
-                <?php endif; ?>
                 <?php if($user): ?>
                     <li><?=$this->Html->link(__('logout'),['controller' => 'users','action' => 'logout'])?></li>
                 <?php endif; ?>

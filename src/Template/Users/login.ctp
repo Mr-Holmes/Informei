@@ -9,10 +9,13 @@
 					<?= $this->Flash->render('auth') ?>
 					<?= $this->Form->create() ?>
 					<fieldset>
-						<legend><?= __('Login:') ?></legend>
+						<legend><?= __('Login') ?></legend>
 						<?= $this->Form->control('username',['class' => 'form-control','data-toggle' => 'tooltip','data-placement' => 'top','title' => 'Nome do Usuario']) ?>
 						<?= $this->Form->control('password',['class' => 'form-control','data-toggle' => 'tooltip','data-placement' => 'top','title' => 'Senha']) ?>
 						
+						<div class="cadastro">
+							<?= $this->Html->link(__('Cadastre-se'),['class' => 'btn btn-default','action' => 'add']) ?>
+						</div>
 					</fieldset>
 							<?= $this->Form->button(__('Login'),['class' => 'form-control btn btn-primary']); ?>
 							<br><br>
@@ -34,4 +37,8 @@
     margin-top: 40px;
 	}
 
+	 }
+ .cadastro{
+    text-align: center;
+ }
 </style>
