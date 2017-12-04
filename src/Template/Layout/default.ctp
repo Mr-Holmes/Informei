@@ -22,7 +22,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
 
@@ -36,6 +35,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+
+    <style type="text/css">
+        .img{
+            margin-bottom: 3px;
+            margin-top-top: 90px;
+            width: 70%;
+        }
+    </style>
 </head>
 <body>
     <?php  
@@ -43,11 +50,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     $id = $this->request->session()->read('Auth.User.id') 
     ?>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-expand-lg bg-lg">
         <div class="collapse navbar-collapse" >
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a href="" class="nav-link"><?= $this->fetch('title') ?><span class="sr-only">(current)</span></a>
+                    <?php if($user): ?>
+                    <a href="" class="nav-link img"><?php echo  $this->Html->image('logo.png')?><span class="sr-only">(current)</span></a>
+                    <?php endif; ?>
                 </li>
             </ul>
         </div>
