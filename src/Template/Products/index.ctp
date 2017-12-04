@@ -7,17 +7,16 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Expenses'), ['controller' => 'Expenses', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('New Product'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Nova Despesa'), ['controller' => 'Expenses', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Novo Produto'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Lista de Usuários'), ['controller' => 'Users', 'action' => 'index']) ?></li>
     </ul>
 </nav>
 <div class="products index large-9 medium-8 columns content">
-    <h3><?= __('Products') ?></h3>
+    <h3><?= __('Produtos') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('valor') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
@@ -27,26 +26,25 @@
         <tbody>
             <?php foreach ($products as $product): ?>
             <tr>
-                <td><?= $this->Number->format($product->id) ?></td>
                 <td><?= h($product->description) ?></td>
                 <td><?= $this->Number->format($product->valor) ?></td>
                 <td><?= $product->has('user') ? $this->Html->link($product->user->username, ['controller' => 'Users', 'action' => 'view', $product->user->id]) : '' ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $product->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $product->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $product->id], ['confirm' => __('Are you sure you want to delete # {0}?', $product->id)]) ?>
+                    <?= $this->Html->link(__('Visualizar'), ['action' => 'view', $product->id]) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $product->id]) ?>
+                    <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $product->id], ['confirm' => __('Tem certeza que deseja apagar ?', $product->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
-    </table>
-    <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-          </ul>
-    </nav>
+    </table><div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('Primeiro')) ?>
+            <?= $this->Paginator->prev('< ' . __('Anteior')) ?>
+            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->next(__('Próximo') . ' >') ?>
+            <?= $this->Paginator->last(__('Último') . ' >>') ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Pagina {{page}} de {{pages}}, mostrando {{current}} registro(s) de {{count}} total')]) ?></p>
+    </div>
 </div>

@@ -59,11 +59,11 @@ class ExpensesController extends AppController
         if ($this->request->is('post')) {
             $expense = $this->Expenses->patchEntity($expense, $this->request->getData());
             if ($this->Expenses->save($expense)) {
-                $this->Flash->success(__('The expense has been saved.'));
+                $this->Flash->success(__('A despesa foi salva.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The expense could not be saved. Please, try again.'));
+            $this->Flash->error(__('A despesa não pôde ser salva. Por favor,tente novamente!'));
         }
         $users = $this->Expenses->Users->find('list', ['limit' => 200]);
         $this->set(compact('expense', 'users'));
@@ -85,11 +85,11 @@ class ExpensesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $expense = $this->Expenses->patchEntity($expense, $this->request->getData());
             if ($this->Expenses->save($expense)) {
-                $this->Flash->success(__('The expense has been saved.'));
+                $this->Flash->success(__('A despesa foi salva'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The expense could not be saved. Please, try again.'));
+            $this->Flash->error(__('A despesa não pôde ser salva. Por favor,tente novamente!'));
         }
         $users = $this->Expenses->Users->find('list', ['limit' => 200]);
         $this->set(compact('expense', 'users'));
@@ -108,9 +108,9 @@ class ExpensesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $expense = $this->Expenses->get($id);
         if ($this->Expenses->delete($expense)) {
-            $this->Flash->success(__('The expense has been deleted.'));
+            $this->Flash->success(__('A despesa foi deletada!'));
         } else {
-            $this->Flash->error(__('The expense could not be deleted. Please, try again.'));
+            $this->Flash->error(__('A despesa não pôde ser salva. Por favor,tente novamente!'));
         }
 
         return $this->redirect(['action' => 'index']);

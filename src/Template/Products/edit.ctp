@@ -8,25 +8,24 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Form->postLink(
-                __('Delete'),
+                __('Deletar'),
                 ['action' => 'delete', $product->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $product->id)]
+                ['confirm' => __('Tem certeza que deseja apagar ?', $product->id)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List Products'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Lista de Produtos'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Lista de Usuários'), ['controller' => 'Users', 'action' => 'index']) ?></li>
     </ul>
 </nav>
 <div class="products form large-9 medium-8 columns content">
     <?= $this->Form->create($product) ?>
     <fieldset>
-        <legend><?= __('Edit Product') ?></legend>
+        <legend><?= __('Editar Produto') ?></legend>
         <?php
-            echo $this->Form->control('description');
+            echo $this->Form->control('descrição');
             echo $this->Form->control('valor');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Enviar')) ?>
     <?= $this->Form->end() ?>
 </div>

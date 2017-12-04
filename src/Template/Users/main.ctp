@@ -1,4 +1,3 @@
-
 <div class="form-control">
     <?= $this->Form->create($product); ?>
     <fieldset>

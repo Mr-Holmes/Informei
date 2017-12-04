@@ -5,13 +5,13 @@
  */
 ?>
 <div class="users index large-9 medium-8 columns content">
-    <h3><?= __('Users') ?></h3>
+    <h3><?= __('Usuários') ?></h3>
     <table czellpadding="0" cellspacing="0">
         <thead class="">
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('username') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Nome de Usuário') ?></th>
+                <th scope="col" class="actions"><?= __('Opções') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -20,21 +20,22 @@
                 <td><?= h($user->email) ?></td>
                 <td><?= h($user->username) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
+                    <?= $this->Html->link(__('Visualizar'), ['action' => 'view', $user->id]) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $user->id]) ?>
+                    <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $user->id], ['confirm' => __('Tem certeza que deseja apagar ?', $user->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-      </ul>
-        </nav>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('Primeiro')) ?>
+            <?= $this->Paginator->prev('< ' . __('Anteior')) ?>
+            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->next(__('Próximo') . ' >') ?>
+            <?= $this->Paginator->last(__('Último') . ' >>') ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Pagina {{page}} de {{pages}}, mostrando {{current}} registro(s) de {{count}} total')]) ?></p>
+    </div>
 </div>

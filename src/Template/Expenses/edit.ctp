@@ -8,26 +8,24 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Form->postLink(
-                __('Delete'),
+                __('Deletar'),
                 ['action' => 'delete', $expense->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $expense->id)]
+                ['confirm' => __('Tem certeza que deseja apagar ?', $expense->id)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Expenses'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Lista de Despesas'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Lista de Usuários'), ['controller' => 'Users', 'action' => 'index']) ?></li>
     </ul>
 </nav>
 <div class="expenses form large-9 medium-8 columns content">
     <?= $this->Form->create($expense) ?>
     <fieldset>
-        <legend><?= __('Edit Expense') ?></legend>
+        <legend><?= __('Editar Despesa') ?></legend>
         <?php
-            echo $this->Form->control('description');
-            echo $this->Form->control('valor');
-            echo $this->Form->control('user_id', ['options' => $users]);
+            echo $this->Form->control('Descrição');
+            echo $this->Form->control('Valor');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Enviar')) ?>
     <?= $this->Form->end() ?>
 </div>

@@ -53,23 +53,20 @@ class UsersController extends AppController
 
     public function login()
     {
-        if($this->request->is('post')){
+        if($this->request->is('post')) {
             $user = $this->Auth->identify();
             if($user){
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl());
             }
 
-            $this->Flash->error(__("Usuário inválido, tente novamente"));
+            $this->Flash->error(__("Usuário inválido, tente novamente!"));
         }
     }
 
     public function logout()
     {
         return $this->redirect($this->Auth->logout());  
-    }
-
-    public function main (){
     }
 
     /**
@@ -83,11 +80,11 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('O usuário foi salvo.'));
 
                 return $this->redirect(['action' => 'login']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('O usuário não pôde ser salvo. Por favor, tente novamente!'));
         }
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
@@ -108,11 +105,11 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('O usuário foi salvo.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('O usuário não pôde ser salvo. Por favor, tente novamente!'));
         }
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
@@ -130,18 +127,19 @@ class UsersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
+            $this->Flash->success(__('O usuário foi deletado!'));
         } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+            $this->Flash->error(__('O usuário não pôde ser excluído. Por favor, tente novamente!'));
         }
 
         return $this->redirect(['action' => 'index']);
     }
 
-    public function isAuthorized($user){
-        if (isset($user['username'])){
+    public function isAuthorized($user)
+    {
+        if (isset($user['username'])) {
             return true;
-        }if(in_array($this->request->action,['edit'],['delete'])){
+        }if(in_array($this->request->action,['edit'],['delete'])) {
             $userId = (int)$this->request->params['pass'][0];
             if ($this->Users->isOwnedBy($userId, $user['id'])) {
                 return true;
@@ -149,5 +147,4 @@ class UsersController extends AppController
         }
         return parent::isAuthorized($user);
     }
-
 }

@@ -28,17 +28,17 @@
 
 <style type="text/css">
 
-    .card {
-    width: 100%;
-    padding-right: inherit;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 40px;
+	.card 
+	{
+    	width: 100%;
+    	padding-right: inherit;
+    	padding-left: 15px;
+    	margin-right: auto;
+    	margin-left: auto;
+    	margin-top: 40px;
 	}
-
-	 }
- .cadastro{
-    text-align: center;
- }
+	.cadastro
+	{
+    	text-align: center;
+ 	}
 </style>
