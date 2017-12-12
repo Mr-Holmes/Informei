@@ -51,14 +51,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     ?>
 
     <nav class="navbar navbar-expand-lg navbar-expand-lg bg-lg">
-        <div class="collapse navbar-collapse" >
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <?php if($user): ?>
-                    <a href="" class="nav-link img"><?php echo  $this->Html->image('logo.png')?><span class="sr-only">(current)</span></a>
-                    <?php endif; ?>
-                </li>
-            </ul>
+        <div class="collapse navbar-collapse">
         </div>
         <div >
             <ul class="navbar-nav mr-auto">

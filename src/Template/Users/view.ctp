@@ -17,7 +17,7 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Relatorio de Despesas') ?></h4>
+        <h4><?= $this->Html->link(__('Relatorio de Despesas'), ['controller' => 'Expenses', 'action' => 'add'])?></h4>
         <?php if (!empty($user->expenses)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -43,7 +43,7 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Relatorio de Produtos') ?></h4>
+        <h4><?= $this->Html->link(__('Relatorio de Produtos'),['controller' => 'Products','action' => 'add'])?></h4>
         <?php if (!empty($user->products)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
