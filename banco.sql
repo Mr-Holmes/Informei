@@ -54,3 +54,16 @@ CONSTRAINT day_pk PRIMARY KEY(id),
 CONSTRAINT products_fk FOREIGN KEY (products_id) REFERENCES products(id) on delete cascade,
 CONSTRAINT business_products_fk FOREIGN KEY (business_id) REFERENCES business(id) on delete cascade
 );
+
+
+CREATE TABLE monthly_data(
+id INT NOT NULL AUTO_INCREMENT,
+month INT NOT NULL,
+year INT NOT NULL,
+gross_profit DECIMAL(8,2),
+gross_expense DECIMAL(8,2),
+liquid_total DECIMAL(8,2),
+user_id INT NOT NULL,
+CONSTRAINT id PRIMARY KEY(id),
+CONSTRAINT users_data_fk FOREIGN KEY (user_id) REFERENCES users(id) on delete cascade
+);
